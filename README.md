@@ -1,5 +1,5 @@
 # nuSIprop
-This code simulates propagation of astrophysical neutrinos under the presence of neutrino self-interactions. Neutrinos are assumed to follow a power law in energy, and their sources are assumed to be distributed in redshift according to the star formation rate. For information on the physics, see the companion paper. Please cite it if you use this code.
+This code simulates propagation of astrophysical neutrinos under the presence of neutrino self-interactions. Neutrinos are assumed to follow a power law in energy, and their sources are assumed to be distributed in redshift according to the star formation rate. We also assume that all mass eigenstates are equally produced at sources. For information on the physics, see the companion paper. Please cite it if you use this code.
 
 ## Prerequisites
 To run nuSIprop, you will need
