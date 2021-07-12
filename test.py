@@ -5,7 +5,7 @@ evolver = nuSIprop.pyprop(mphi = 6e5, # Mediator mass [eV]
 			  g = 0.01, # Coupling
 			  mntot = 0.1, # Sum of neutrino masses [eV]
 			  si = 2.5, # Spectral index
-			  norm = 5.991745031706099, # Normalization of the free-streaming flux at 100 TeV [Default = 1]
+			  norm = 6, # Normalization of the free-streaming flux at 100 TeV [Default = 1]
 			  majorana = True, # Majorana neutrinos? [Default = True]
 			  non_resonant = True, # Include non s-channel contributions? Relevant for couplings g>~0.1 [Default = True]
 			  normal_ordering = True, # Normal neutrino mass ordering? [Default = True]

@@ -8,8 +8,9 @@ import numpy as np
 import scipy.integrate as integ
 import warnings
 import ctypes
+import os
 
-lib_C = ctypes.CDLL('funcs.so')
+lib_C = ctypes.cdll.LoadLibrary(os.path.abspath('funcs.so'))
 
 dsigma_over_tauphi = lib_C.dsigma_phiphi_over_tauphi
 dsigma_over_tauphi.restype = ctypes.c_double

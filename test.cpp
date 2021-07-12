@@ -7,7 +7,7 @@ int main(){
 				   0.01, // Coupling
 				   0.1, // Sum of neutrino masses [eV]
 				   2.5, // Spectral index
-				   5.991745031706099, // Normalization of the free-streaming flux at 100 TeV [Default = 1]
+				   6, // Normalization of the free-streaming flux at 100 TeV [Default = 1]
 				   true, // Majorana neutrinos? [Default = true]
 				   true, // Include non s-channel contributions? Relevant for couplings g>~0.1 [Default = true]
 				   true, // Normal neutrino mass ordering? [Default = true]
