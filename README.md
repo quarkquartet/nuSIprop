@@ -1,5 +1,5 @@
 # nuSIprop
-This code simulates propagation of astrophysical neutrinos under the presence of neutrino self-interactions. Neutrinos are assumed to follow a power law in energy, and their sources are assumed to be distributed in redshift according to the star formation rate. We also assume that all mass eigenstates are equally produced at sources, and that interactions are diagonal in flavor space. All these assumptions can be lifted through simple modifications of the code.
+This code simulates propagation of astrophysical neutrinos under the presence of neutrino self-interactions. Neutrinos are assumed to follow a power law in energy, and their sources are assumed to be distributed in redshift according to the star formation rate. We also assume that all mass eigenstates are equally produced at sources, and that interactions are diagonal in flavor space. For the neutrino mixing parameters, we assume the [NuFIT 5.0](http://www.nu-fit.org/?q=node/228) best fit values. All these assumptions can be lifted through simple modifications of the code.
 
 For information on the physics, see the companion paper. Please cite it if you use this code. For details on the numerical algorithm, check the file `Details.pdf`.
 
@@ -19,11 +19,11 @@ We provide both C++ and Python interfaces. The file `test.cpp` contains a minima
 
 ```g++ -std=gnu++11 -O3 -o test.out test.cpp -lgsl -lgslcblas```
 
-After running it
+After running it, execute
 
 ```./test.out```
 
-it will output the neutrino flux for each flavor as a function of energy assuming self-interactions.
+This will output the neutrino flux for each flavor as a function of energy assuming self-interactions.
 
 Alternatively, one can use the Python interface. First compile the Python library by running
 
