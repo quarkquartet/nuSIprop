@@ -1,7 +1,7 @@
 # nuSIprop
 This code simulates propagation of astrophysical neutrinos under the presence of neutrino self-interactions. Neutrinos are assumed to follow a power law in energy, and their sources are assumed to be distributed in redshift according to the star formation rate. We also assume that all mass eigenstates are equally produced at sources, and that interactions are diagonal in flavor space. For the neutrino mixing parameters, we assume the [NuFIT 5.0](http://www.nu-fit.org/?q=node/228) best fit values. All these assumptions can be lifted through simple modifications of the code.
 
-For information on the physics, see the companion paper. Please cite it if you use this code. For details on the numerical algorithm, check the file `Details.pdf`.
+For information on the physics, see the companion paper [arXiv:2107.13568](https://arxiv.org/abs/2107.13568). Please cite it if you use this code. For details on the numerical algorithm, check the file `Details.pdf`.
 
 ## Prerequisites
 To run nuSIprop, you will need
