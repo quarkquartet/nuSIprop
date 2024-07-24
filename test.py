@@ -1,21 +1,32 @@
 import nuSIprop
+import numpy as np
 
 # Construct the object. Only the parameters mphi, g, mntot and si are mandatory
-evolver = nuSIprop.pyprop(mphi = 6e5, # Mediator mass [eV]
-			  g = 0.01, # Coupling
-			  mntot = 0.1, # Sum of neutrino masses [eV]
-			  si = 2.5, # Spectral index
-			  norm = 6, # Normalization of the free-streaming flux at 100 TeV [Default = 1]
-			  majorana = True, # Majorana neutrinos? [Default = True]
-			  non_resonant = True, # Include non s-channel contributions? Relevant for couplings g>~0.1 [Default = True]
-			  normal_ordering = True, # Normal neutrino mass ordering? [Default = True]
-			  N_bins_E = 100, # Number of energy bins, uniformly distributed in log space [Default = 300]
-			  lEmin = 9, # log_10 (E_min/eV) [Default = 13]
-			  lEmax = 14, # log_10 (E_max/eV) [Default = 17]
-			  zmax = 5, # Largest redshift at which sources are included [Default = 5]
-			  flav = 2, # Flavor of interacting neutrinos [0=e, 1=mu, 2=tau. Default = 2]
-			  phiphi = False # Consider double-scalar production? If set to true, the files xsec/alpha_phiphi.bin and xsec/alphatilde_phiphi.bin must exist [Default = False]
-                          )
+evolver = nuSIprop.pyprop(
+        ## Upper block, i am sure it's consistent with their paper
+        mphi = 5e6, #6e5, # Mediator mass [eV]
+	    si = 2., # Spectral index
+	    norm = 6, # Normalization of the free-streaming flux at 100 TeV [Default = 1]
+	    majorana = True, # Majorana neutrinos? [Default = True]
+	    normal_ordering = True, # Normal neutrino mass ordering? [Default = True]
+	    N_bins_E = 100, # Number of energy bins, uniformly distributed in log space [Default = 300]
+	    lEmin = np.log10(8e3*1e9), # log_10 (E_min/eV) [Default = 13]
+	    lEmax = 16, # log_10 (E_max/eV) [Default = 17]
+	    zmax = 5, # Largest redshift at which sources are included [Default = 5]
+
+        #mntot = 0.1, # Sum of neutrino masses [eV]
+        mntot = 0.0 + np.sqrt(7.42e-5) + np.sqrt(2.514e-3), # BZ added; for NO only 
+
+        g = 0.01, # Coupling
+	    non_resonant = False, #True, # Include non s-channel contributions? Relevant for couplings g>~0.1 [Default = True]
+
+	    phiphi = False, # Consider double-scalar production? If set to true, the files xsec/alpha_phiphi.bin and xsec/alphatilde_phiphi.bin must exist [Default = False]
+	    flav = 2, # Flavor of interacting neutrinos [0=e, 1=mu, 2=tau. Default = 2]
+        )
+
+'# Other inputs #######!!!!!!!!'
+#outfile = 'data.txt'
+outfile = 'data_massless.txt'
 
 # Evolve it
 evolver.evolve()
@@ -26,6 +37,19 @@ print("#Energy[eV]  nu_e flux   nu_mu flux  nu_tau flux")
 for (energy, flx_e, flx_mu, flx_ta) in zip(evolver.get_energies(),
                                            flx[0], flx[1], flx[2]):
     print("%.5e  %.4e  %.4e  %.4e" % (energy, flx_e, flx_mu, flx_ta))
+
+# Added by BZ
+
+energies = evolver.get_energies()  # replace with your actual function call
+flx_e = flx[0]
+flx_mu = flx[1]
+flx_ta = flx[2]
+data = np.column_stack((energies, flx_e, flx_mu, flx_ta))
+#print(data)
+
+header = "# energy, flx_e, flx_mu, flx_ta "
+np.savetxt('/Users/quarkquartet/Dropbox/Research_Project/2024-1-Massless_Neutrino_DSNB/02-Analysis/nuSIprop/output/'+outfile, data, header=header, fmt="%.5e  %.4e  %.4e  %.4e", comments='')
+
 
 
 # Other usage tips:
