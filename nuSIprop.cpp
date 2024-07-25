@@ -32,7 +32,9 @@
         ],
         "name": "nuSIprop",
         "sources": [
-            "nuSIprop.pyx"
+            "nuSIprop.pyx",
+            "/Users/quarkquartet/Dropbox/Research_Project/2024-1-Massless_Neutrino_DSNB/02-Analysis/nuSIprop/polylogarithm/src/cpp/Li2.cpp",
+            "/Users/quarkquartet/Dropbox/Research_Project/2024-1-Massless_Neutrino_DSNB/02-Analysis/nuSIprop/polylogarithm/src/cpp/Li3.cpp"
         ]
     },
     "module_name": "nuSIprop"

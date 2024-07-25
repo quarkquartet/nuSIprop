@@ -10,10 +10,17 @@ os.environ["CXX"] = "/opt/homebrew/Cellar/gcc/14.1.0_1/bin/g++-14"
 gsl_include_dir = "/opt/homebrew/opt/gsl/include"
 gsl_lib_dir = "/opt/homebrew/opt/gsl/lib"
 
+polylogarithm_sources = [
+    "/Users/quarkquartet/Dropbox/Research_Project/2024-1-Massless_Neutrino_DSNB/02-Analysis/nuSIprop/polylogarithm/src/cpp/Li2.cpp",
+    "/Users/quarkquartet/Dropbox/Research_Project/2024-1-Massless_Neutrino_DSNB/02-Analysis/nuSIprop/polylogarithm/src/cpp/Li3.cpp",  # Add more source files as needed
+]
+
+sources = ["nuSIprop.pyx"] + polylogarithm_sources
+
 extensions = [
     Extension(
         "nuSIprop",
-        ["nuSIprop.pyx"],
+        sources=sources,
         include_dirs=[np.get_include(), gsl_include_dir],
         libraries=["gsl", "gslcblas", "m"],
         library_dirs=[gsl_lib_dir],
