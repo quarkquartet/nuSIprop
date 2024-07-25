@@ -612,7 +612,7 @@ namespace nuSIprop
        * The R_SF(z) or \dot{\rho}_* (z) refers to the SFR defined above.
        */
       double m_solar = 1.989 * 56.1; // Solar mass in unit 1e64 eV.
-      return get_SFR(z) / (0.01 * m_solar);
+      return get_SFR(z) * 0.01 / (m_solar);
     }
 
     static inline double dNdE(double E)
