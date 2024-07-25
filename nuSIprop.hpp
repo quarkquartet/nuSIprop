@@ -642,7 +642,7 @@ namespace nuSIprop
        *  */
       double Etot = 3 * 6.24; // E_nu^tot in the unit 1e64 eV.
       double Tnue = 6e6;
-      return (Etot * 120 / (6 * 7 * pow(M_PI, 4))) * (-E * E * (1 + z) * log(exp(-E * (1 + z) / Tnue) + 1) / Tnue + 2 * E * Li_2(-exp(-E * (1 + z) / Tnue)) + 2 * Tnue * Li_3(-exp(-E * (1 + z) / Tnue)) / (1 + z));
+      return (Etot * 120 / (6 * 7 * pow(M_PI, 4) * pow(Tnue, 2))) * (-E * E * (1 + z) * log(exp(-E * (1 + z) / Tnue) + 1) / Tnue + 2 * E * Li_2(-exp(-E * (1 + z) / Tnue)) + 2 * Tnue * Li_3(-exp(-E * (1 + z) / Tnue)) / (1 + z));
     }
 
     // inline double Lum(double z, double Em, double Ep, int i)
